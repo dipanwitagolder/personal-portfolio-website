@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dr. Dipanwita Golder</title>
+<link rel="stylesheet" href="style.css">
+
+<!-- Chart.js -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<nav>
+    <div class="logo">Dr. Golder</div>
+
+    <div class="nav-right">
+        <input type="text" id="searchInput" placeholder="Search...">
+        <button onclick="searchContent()">🔍</button>
+
+        <button onclick="setLanguage('en')">EN</button>
+        <button onclick="setLanguage('sv')">SV</button>
+    </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero fade-in">
+    <div>
+        <h1 data-en="Research Physician & Health Informatics Specialist"
+            data-sv="Forskningsläkare & Hälsoinformatik Specialist"></h1>
+
+        <p data-en="Improving healthcare through data, research, and innovation"
+           data-sv="Förbättrar vården genom data, forskning och innovation"></p>
+
+        <a href="Dipanwita_Golder_CV.pdf" download class="btn">Download CV</a>
+    </div>
+
+    <img src="profile.jpg" alt="Profile">
+</section>
+
+<!-- ABOUT -->
+<section class="fade-in">
+    <h2 data-en="About Me" data-sv="Om Mig"></h2>
+    <p data-en="Medical doctor with expertise in public health and digital health systems."
+       data-sv="Läkare med erfarenhet inom folkhälsa och digitala hälsosystem."></p>
+</section>
+
+<!-- EXPERIENCE -->
+<section class="fade-in">
+    <h2 data-en="Experience" data-sv="Erfarenhet"></h2>
+
+    <div class="card">
+        <h3>Clinical Mentor</h3>
+        <p>Save the Children Bangladesh</p>
+    </div>
+
+    <div class="card">
+        <h3>Medical Coordinator</h3>
+        <p>BWHC</p>
+    </div>
+</section>
+
+<!-- PUBLICATIONS -->
+<section class="fade-in">
+    <h2 data-en="Publications & Research" data-sv="Publikationer & Forskning"></h2>
+
+    <div class="card">
+        <h3>Maternal Healthcare Quality Improvement</h3>
+        <p>Research on midwifery-led care and maternal outcomes.</p>
+    </div>
+
+    <div class="card">
+        <h3>Digital Health Monitoring Systems</h3>
+        <p>Implementation of reporting systems in public health programs.</p>
+    </div>
+</section>
+
+<!-- DATA VISUALIZATION -->
+<section class="fade-in">
+    <h2 data-en="Health Data Insights" data-sv="Hälsodata Analys"></h2>
+    <canvas id="healthChart"></canvas>
+</section>
+
+<!-- CONTACT -->
+<section class="fade-in">
+    <h2 data-en="Contact" data-sv="Kontakt"></h2>
+    <p>Email: dipanwita.golder@gmail.com</p>
+</section>
+
+<footer>
+    <p>© 2026 Dr. Dipanwita Golder</p>
+</footer>
+
+<!-- SCRIPT -->
+<script>
+
+// MULTILANGUAGE
+function setLanguage(lang) {
+    document.querySelectorAll("[data-en]").forEach(el => {
+        el.innerText = el.getAttribute(`data-${lang}`);
+    });
+}
+
+// Default language
+setLanguage('en');
+
+// SEARCH
+function searchContent() {
+    let input = document.getElementById("searchInput").value.toLowerCase();
+    document.querySelectorAll("section").forEach(section => {
+        section.style.display =
+            section.innerText.toLowerCase().includes(input) ? "block" : "none";
+    });
+}
+
+// CHART
+const ctx = document.getElementById('healthChart');
+new Chart(ctx, {
+    type: 'bar',
+    data: {
+        labels: ['Maternal Care', 'Training', 'Monitoring', 'Digital Health'],
+        datasets: [{
+            label: 'Impact Level',
+            data: [85, 75, 90, 80],
+        }]
+    }
+});
+
+// SCROLL ANIMATION
+const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add("show");
+        }
+    });
+});
+
+document.querySelectorAll(".fade-in").forEach(el => observer.observe(el));
+
+</script>
+
+</body>
+</html>
