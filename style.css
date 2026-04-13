@@ -1,0 +1,74 @@
+/* GENERAL */
+body {
+    margin: 0;
+    font-family: Arial;
+    background: #f5f7fa;
+}
+
+/* NAV */
+nav {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px;
+    background: #001219;
+    color: white;
+}
+
+/* HERO */
+.hero {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 50px;
+    background: linear-gradient(to right, #005f73, #0a9396);
+    color: white;
+}
+
+.hero img {
+    width: 200px;
+    border-radius: 50%;
+}
+
+/* BUTTON */
+.btn {
+    background: white;
+    color: #005f73;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+}
+
+/* SECTION */
+section {
+    padding: 40px;
+    max-width: 900px;
+    margin: auto;
+}
+
+/* CARD */
+.card {
+    background: white;
+    padding: 20px;
+    margin: 10px 0;
+    border-radius: 10px;
+}
+
+/* ANIMATION */
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.8s ease;
+}
+
+.fade-in.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* FOOTER */
+footer {
+    text-align: center;
+    padding: 20px;
+    background: #001219;
+    color: white;
+}
